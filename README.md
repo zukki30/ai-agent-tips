@@ -28,7 +28,9 @@ ai-agent-tips/
 │   ├── nodejs.md              # Node.js 開発基礎
 │   ├── unit-test.md           # ユニットテストの書き方
 │   ├── e2e-playwright.md      # Playwright E2E テスト
-│   └── hono.md                # Hono フレームワーク
+│   ├── hono.md                # Hono フレームワーク
+│   ├── tdd.md                 # TDD & レガシーコード改善
+│   └── ai-review.md           # AI PRレビュー & 人名プロンプト
 ├── commands/                  # よく使うコマンド集
 │   ├── development.md         # 開発コマンド
 │   ├── testing.md             # テスト実行コマンド
