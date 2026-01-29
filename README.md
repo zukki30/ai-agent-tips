@@ -30,7 +30,8 @@ ai-agent-tips/
 │   ├── e2e-playwright.md      # Playwright E2E テスト
 │   ├── hono.md                # Hono フレームワーク
 │   ├── tdd.md                 # TDD & レガシーコード改善
-│   └── ai-review.md           # AI PRレビュー & 人名プロンプト
+│   ├── ai-review.md           # AI PRレビュー & 人名プロンプト
+│   └── pr-review.md           # PR レビュースキル（Claude Code Skills 対応）
 ├── commands/                  # よく使うコマンド集
 │   ├── development.md         # 開発コマンド
 │   ├── testing.md             # テスト実行コマンド
@@ -107,6 +108,9 @@ cp AGENT.md .github/copilot-instructions.md
 - **unit-test.md**: Jest/Vitest、モック、React Testing Library
 - **e2e-playwright.md**: Playwright の設定、ロケーター、API テスト、POM
 - **hono.md**: ルーティング、ミドルウェア、バリデーション、RPC モード
+- **tdd.md**: TDD サイクル（Red → Green → Refactor）、レガシーコード改善
+- **ai-review.md**: 人名プロンプト（圧縮プロンプト）、AI レビュー手法
+- **pr-review.md**: Claude Code Skills 対応の PR レビュー自動化、GitHub Actions 連携
 
 ### Commands（コマンド集）
 
