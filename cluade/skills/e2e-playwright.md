@@ -79,31 +79,31 @@ test.describe('ログイン機能', () => {
     // ページに移動
     await page.goto('/login');
 
-    // フォームに入力
-    await page.fill('input[name="email"]', 'user@example.com');
-    await page.fill('input[name="password"]', 'password123');
+    // フォームに入力（getByLabel / getByRole を優先）
+    await page.getByLabel('メールアドレス').fill('user@example.com');
+    await page.getByLabel('パスワード').fill('password123');
 
     // ボタンをクリック
-    await page.click('button[type="submit"]');
+    await page.getByRole('button', { name: 'ログイン' }).click();
 
     // ナビゲーションを待つ
     await page.waitForURL('/dashboard');
 
     // アサーション
     await expect(page).toHaveURL('/dashboard');
-    await expect(page.locator('h1')).toHaveText('ダッシュボード');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('ダッシュボード');
   });
 
   test('無効な認証情報でのログイン失敗', async ({ page }) => {
     await page.goto('/login');
 
-    await page.fill('input[name="email"]', 'invalid@example.com');
-    await page.fill('input[name="password"]', 'wrongpassword');
-    await page.click('button[type="submit"]');
+    await page.getByLabel('メールアドレス').fill('invalid@example.com');
+    await page.getByLabel('パスワード').fill('wrongpassword');
+    await page.getByRole('button', { name: 'ログイン' }).click();
 
     // エラーメッセージの確認
-    await expect(page.locator('.error-message')).toBeVisible();
-    await expect(page.locator('.error-message')).toHaveText(
+    await expect(page.getByRole('alert')).toBeVisible();
+    await expect(page.getByRole('alert')).toHaveText(
       'メールアドレスまたはパスワードが正しくありません'
     );
   });
@@ -521,8 +521,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install dependencies

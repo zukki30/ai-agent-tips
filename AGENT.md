@@ -24,11 +24,11 @@
 
 ```typescript
 // Good
-interface UserData {
+type UserData = {
   id: string;
   name: string;
   email: string;
-}
+};
 
 function processUser(user: UserData): void {
   // 処理
@@ -104,14 +104,14 @@ const handleSubmit = () => {};
 #### React コンポーネント
 ```typescript
 // コンポーネント: PascalCase
-export const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
-  return <div>{userId}</div>;
-};
-
-// Props インターフェース: コンポーネント名 + Props
-interface UserProfileProps {
+// Props 型を先に定義し、関数宣言で記述
+type UserProfileProps = {
   userId: string;
   onUpdate?: (user: User) => void;
+};
+
+export function UserProfile({ userId }: UserProfileProps) {
+  return <div>{userId}</div>;
 }
 ```
 
@@ -119,7 +119,7 @@ interface UserProfileProps {
 ```typescript
 // 1. 外部ライブラリ
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 // 2. 内部モジュール（絶対パス）
 import { Button } from '@/components/common/Button';
@@ -369,13 +369,13 @@ test('should submit form with valid data', async () => {
 ```typescript
 test('user can complete purchase flow', async ({ page }) => {
   await page.goto('/products');
-  await page.click('text=商品A');
-  await page.click('text=カートに追加');
-  await page.click('text=購入手続き');
-  await page.fill('[name="cardNumber"]', '4242424242424242');
-  await page.click('text=注文確定');
-  
-  await expect(page.locator('text=注文完了')).toBeVisible();
+  await page.getByText('商品A').click();
+  await page.getByRole('button', { name: 'カートに追加' }).click();
+  await page.getByRole('link', { name: '購入手続き' }).click();
+  await page.getByLabel('カード番号').fill('4242424242424242');
+  await page.getByRole('button', { name: '注文確定' }).click();
+
+  await expect(page.getByText('注文完了')).toBeVisible();
 });
 ```
 
@@ -384,9 +384,12 @@ test('user can complete purchase flow', async ({ page }) => {
 ### 1. 認証・認可
 ```typescript
 // JWT の適切な使用
+const secret = process.env.JWT_SECRET;
+if (!secret) throw new Error('JWT_SECRET is not configured');
+
 const token = jwt.sign(
   { userId: user.id, role: user.role },
-  process.env.JWT_SECRET,
+  secret,
   { expiresIn: '1h' }
 );
 

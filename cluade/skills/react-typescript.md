@@ -14,15 +14,15 @@
 ### Props の型定義
 ```typescript
 // Good
-interface UserProfileProps {
+type UserProfileProps = {
   userId: string;
   userName: string;
   onUpdate?: (user: User) => void;
-}
-
-const UserProfile: React.FC<UserProfileProps> = ({ userId, userName, onUpdate }) => {
-  // ...
 };
+
+function UserProfile({ userId, userName, onUpdate }: UserProfileProps) {
+  // ...
+}
 ```
 
 ### Hooks の使用

@@ -285,8 +285,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: npm ci
@@ -319,10 +319,10 @@ jobs:
 npm run db:test:setup && npm test
 
 # Docker でテスト用DBを起動してテスト
-docker-compose -f docker-compose.test.yml up -d && npm test
+docker compose -f docker-compose.test.yml up -d && npm test
 
 # テスト後のクリーンアップ
-npm test; docker-compose -f docker-compose.test.yml down
+npm test; docker compose -f docker-compose.test.yml down
 ```
 
 ## まとめ：よく使うテストコマンド

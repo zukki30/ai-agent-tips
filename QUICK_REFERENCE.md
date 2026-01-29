@@ -28,14 +28,14 @@ const handleClick = () => {};
 const handleSubmit = () => {};
 
 // Props型: ComponentName + Props
-interface UserProfileProps {}
+type UserProfileProps = {};
 ```
 
 ### インポート順序
 ```typescript
 // 1. 外部ライブラリ
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 // 2. 内部モジュール（絶対パス）
 import { Button } from '@/components/Button';
@@ -107,20 +107,20 @@ kill -9 <PID>
 
 ### コンポーネント基本形
 ```typescript
-interface Props {
+type Props = {
   title: string;
   onSubmit?: () => void;
-}
+};
 
-export const MyComponent: React.FC<Props> = ({ title, onSubmit }) => {
+export function MyComponent({ title, onSubmit }: Props) {
   const [state, setState] = useState('');
-  
+
   useEffect(() => {
     // 副作用
   }, []);
-  
+
   return <div>{title}</div>;
-};
+}
 ```
 
 ### Next.js Server Component
@@ -196,9 +196,9 @@ test('button click', async () => {
 ```typescript
 test('user flow', async ({ page }) => {
   await page.goto('/');
-  await page.fill('input[name="email"]', 'user@example.com');
-  await page.click('button[type="submit"]');
-  
+  await page.getByLabel('メールアドレス').fill('user@example.com');
+  await page.getByRole('button', { name: '送信' }).click();
+
   await expect(page).toHaveURL('/dashboard');
 });
 ```
@@ -238,21 +238,21 @@ test('user flow', async ({ page }) => {
 
 ### Props 型
 ```typescript
-interface ComponentProps {
+type ComponentProps = {
   required: string;
   optional?: number;
   callback?: (value: string) => void;
   children?: React.ReactNode;
-}
+};
 ```
 
 ### API レスポンス型
 ```typescript
-interface ApiResponse<T> {
+type ApiResponse<T> = {
   success: boolean;
   data: T;
   error?: string;
-}
+};
 
 type User = {
   id: string;

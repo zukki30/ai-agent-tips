@@ -68,23 +68,14 @@ npm run build
 # 本番起動
 npm start
 
-# 静的エクスポート
-npm run build && npm run export
+# 静的エクスポート（next.config.js に output: 'export' を設定）
+npm run build
 
 # スタンドアロンビルド
 next build
 
 # ビルド解析
 ANALYZE=true npm run build
-```
-
-### Create React App
-```bash
-# 本番ビルド
-npm run build
-
-# ビルドサイズの解析
-npx source-map-explorer 'build/static/js/*.js'
 ```
 
 ## Nest.js のビルド
@@ -123,16 +114,16 @@ docker build -f Dockerfile.prod -t my-app:prod .
 ### Docker Compose でのビルド
 ```bash
 # サービスのビルド
-docker-compose build
+docker compose build
 
 # キャッシュなしでビルド
-docker-compose build --no-cache
+docker compose build --no-cache
 
 # 並列ビルド
-docker-compose build --parallel
+docker compose build --parallel
 
 # ビルドして起動
-docker-compose up --build
+docker compose up --build
 ```
 
 ## デプロイコマンド
@@ -370,8 +361,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - run: npm ci

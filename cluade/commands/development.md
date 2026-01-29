@@ -66,10 +66,7 @@ npm start
 
 ### プロジェクト作成
 ```bash
-# Create React App (TypeScript)
-npx create-react-app my-app --template typescript
-
-# Vite で React プロジェクト作成
+# Vite で React プロジェクト作成（推奨）
 npm create vite@latest my-app -- --template react-ts
 
 # Next.js プロジェクト作成
@@ -87,8 +84,8 @@ npm run build
 # Next.js 本番起動
 npm start
 
-# Next.js 静的エクスポート
-npm run build && npm run export
+# Next.js 静的エクスポート（next.config.js に output: 'export' を設定後）
+npm run build
 ```
 
 ## Nest.js コマンド
@@ -285,22 +282,22 @@ docker exec -it <container-id> /bin/bash
 ### Docker Compose
 ```bash
 # サービスの起動
-docker-compose up
+docker compose up
 
 # バックグラウンドで起動
-docker-compose up -d
+docker compose up -d
 
 # サービスの停止
-docker-compose down
+docker compose down
 
 # ビルドして起動
-docker-compose up --build
+docker compose up --build
 
 # ログ確認
-docker-compose logs
+docker compose logs
 
 # 特定サービスのログ
-docker-compose logs <service-name>
+docker compose logs <service-name>
 ```
 
 ## データベースコマンド
