@@ -278,7 +278,7 @@ npm run dev
 ### 2. 機能開発（TDD で進める）
 
 TDD（テスト駆動開発）の Red → Green → Refactor サイクルに従う。
-詳細は `skills/tdd.md` を参照。
+詳細は `claude/skills/tdd.md` を参照。
 
 ```bash
 # フィーチャーブランチの作成
@@ -684,7 +684,7 @@ async function updateUser(
 ## AIエージェント向け指示
 
 ### コード生成時の注意点
-1. **TDD**: テストを先に書き、Red → Green → Refactor サイクルに従う（`skills/tdd.md` 参照）
+1. **TDD**: テストを先に書き、Red → Green → Refactor サイクルに従う（`claude/skills/tdd.md` 参照）
 2. **型安全性**: 必ず TypeScript の型を定義
 3. **エラーハンドリング**: 適切な例外処理を含める
 4. **パフォーマンス**: 不要な再レンダリングを避ける
@@ -694,7 +694,7 @@ async function updateUser(
 
 ### 人名プロンプト（圧縮プロンプト）の活用
 AI エージェントへの指示に専門家の名前を使うことで、特定の文脈を強く引き出せます。
-詳細は `skills/ai-review.md` を参照。
+詳細は `claude/skills/ai-review.md` を参照。
 
 - **TDD**: 「t_wada の推奨する進め方に従ってください」
 - **リファクタリング**: 「Kent Beck の Tidy First? に従ってください」
@@ -706,7 +706,7 @@ AI エージェントへの指示に専門家の名前を使うことで、特�
 
 このチェックリストを使って **一貫性があり高品質** なコードレビューを行います。
 該当しない項目は状況に応じて省略・調整してください。
-Claude Code Skills を使った自動レビューの設定は `skills/pr-review.md` を参照。
+Claude Code Skills を使った自動レビューの設定は `claude/skills/pr-review.md` を参照。
 
 ### 1. 事前準備
 

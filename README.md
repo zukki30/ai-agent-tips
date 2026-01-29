@@ -21,23 +21,24 @@ Claude Code、GitHub Copilot、Cursor などの AI エージェントでの開�
 
 ```
 ai-agent-tips/
-├── skills/                    # 技術別スキルドキュメント
-│   ├── react-typescript.md    # React + TypeScript のベストプラクティス
-│   ├── nextjs.md              # Next.js 開発ガイド
-│   ├── nestjs.md              # Nest.js バックエンド開発
-│   ├── nodejs.md              # Node.js 開発基礎
-│   ├── unit-test.md           # ユニットテストの書き方
-│   ├── e2e-playwright.md      # Playwright E2E テスト
-│   ├── hono.md                # Hono フレームワーク
-│   ├── tdd.md                 # TDD & レガシーコード改善
-│   ├── ai-review.md           # AI PRレビュー & 人名プロンプト
-│   └── pr-review.md           # PR レビュースキル（Claude Code Skills 対応）
-├── commands/                  # よく使うコマンド集
-│   ├── development.md         # 開発コマンド
-│   ├── testing.md             # テスト実行コマンド
-│   └── build-deploy.md        # ビルド・デプロイコマンド
-├── AGENT.md                   # AI エージェント向けガイドライン
-└── README.md                  # このファイル
+├── claude/                        # Claude 設定ディレクトリ
+│   ├── skills/                    # 技術別スキルドキュメント
+│   │   ├── react-typescript.md    # React + TypeScript のベストプラクティス
+│   │   ├── nextjs.md              # Next.js 開発ガイド
+│   │   ├── nestjs.md              # Nest.js バックエンド開発
+│   │   ├── nodejs.md              # Node.js 開発基礎
+│   │   ├── unit-test.md           # ユニットテストの書き方
+│   │   ├── e2e-playwright.md      # Playwright E2E テスト
+│   │   ├── hono.md                # Hono フレームワーク
+│   │   ├── tdd.md                 # TDD & レガシーコード改善
+│   │   ├── ai-review.md           # AI PRレビュー & 人名プロンプト
+│   │   └── pr-review.md           # PR レビュースキル（Claude Code Skills 対応）
+│   └── commands/                  # よく使うコマンド集
+│       ├── development.md         # 開発コマンド
+│       ├── testing.md             # テスト実行コマンド
+│       └── build-deploy.md        # ビルド・デプロイコマンド
+├── AGENT.md                       # AI エージェント向けガイドライン
+└── README.md                      # このファイル
 ```
 
 ## 🚀 使い方
@@ -53,7 +54,7 @@ git clone https://github.com/zukki30/ai-agent-tips.git .ai-tips
 #### 方法B: 必要なファイルをコピー
 ```bash
 # 特定のスキルファイルをコピー
-cp ai-agent-tips/skills/react-typescript.md docs/
+cp ai-agent-tips/claude/skills/react-typescript.md docs/
 cp ai-agent-tips/AGENT.md .
 ```
 
@@ -64,21 +65,21 @@ Claude Desktop の設定に追加して、すべてのプロジェクトで参�
 #### macOS
 ```bash
 # Claude の設定ディレクトリにコピー
-cp -r skills ~/Library/Application\ Support/Claude/skills/
+cp -r claude/skills ~/Library/Application\ Support/Claude/skills/
 cp AGENT.md ~/Library/Application\ Support/Claude/
 ```
 
 #### Windows
 ```powershell
 # Claude の設定ディレクトリにコピー
-Copy-Item -Recurse skills "$env:APPDATA\Claude\skills\"
+Copy-Item -Recurse claude\skills "$env:APPDATA\Claude\skills\"
 Copy-Item AGENT.md "$env:APPDATA\Claude\"
 ```
 
 #### Linux
 ```bash
 # Claude の設定ディレクトリにコピー
-cp -r skills ~/.config/Claude/skills/
+cp -r claude/skills ~/.config/Claude/skills/
 cp AGENT.md ~/.config/Claude/
 ```
 
@@ -153,7 +154,7 @@ cp .ai-tips/AGENT.md .
 ### 既存プロジェクトへの適用
 ```bash
 # 1. 現在のプロジェクト構造を確認
-# 2. 該当する skills ファイルを参照
+# 2. 該当する claude/skills ファイルを参照
 # 3. コーディング規約に従ってリファクタリング
 ```
 
@@ -161,7 +162,7 @@ cp .ai-tips/AGENT.md .
 ```bash
 # プロジェクトの docs/ にコピー
 mkdir -p docs/ai-guidelines
-cp -r ai-agent-tips/skills docs/ai-guidelines/
+cp -r ai-agent-tips/claude/skills docs/ai-guidelines/
 cp ai-agent-tips/AGENT.md docs/ai-guidelines/
 
 # チームメンバーに周知

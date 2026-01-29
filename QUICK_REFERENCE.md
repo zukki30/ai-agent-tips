@@ -366,7 +366,7 @@ console.log('Response:', response.status);
 
 ### 機能実装
 ```
-AGENT.md と skills/<technology>.md を参照して、
+AGENT.md と claude/skills/<technology>.md を参照して、
 <機能名> を実装してください。
 
 要件：
@@ -398,8 +398,8 @@ AGENT.md のベストプラクティスに従い：
 ## 📚 詳細情報の参照先
 
 - **詳細ガイド**: AGENT.md
-- **技術別ガイド**: skills/ ディレクトリ
-- **コマンド集**: commands/ ディレクトリ
+- **技術別ガイド**: claude/skills/ ディレクトリ
+- **コマンド集**: claude/commands/ ディレクトリ
 - **統合例**: INTEGRATION_GUIDE.md
 
 ---

@@ -25,7 +25,7 @@ cp AGENT.md .cursorrules
 
 #### 例1: 新機能の実装
 ```
-AGENT.md とスキルファイル（skills/nextjs.md, skills/react-typescript.md）を参照して、
+AGENT.md とスキルファイル（claude/skills/nextjs.md, claude/skills/react-typescript.md）を参照して、
 以下の要件でユーザープロフィールページを実装してください：
 
 - App Router を使用
@@ -39,7 +39,7 @@ AGENT.md とスキルファイル（skills/nextjs.md, skills/react-typescript.md
 
 #### 例2: API エンドポイントの作成
 ```
-skills/nextjs.md の API Routes セクションを参照して、
+claude/skills/nextjs.md の API Routes セクションを参照して、
 ユーザー情報を取得する API エンドポイントを作成してください：
 
 - Route Handlers (App Router) を使用
@@ -71,7 +71,7 @@ cp .ai-tips/AGENT.md .
 
 #### 例: CRUD リソースの実装
 ```
-AGENT.md と skills/nestjs.md を参照して、
+AGENT.md と claude/skills/nestjs.md を参照して、
 商品（Product）の CRUD 機能を実装してください：
 
 要件：
@@ -109,7 +109,7 @@ cp .ai-tips/AGENT.md .
 
 ### AI エージェントへの指示例
 ```
-skills/hono.md を参照して、以下の機能を持つ REST API を実装してください：
+claude/skills/hono.md を参照して、以下の機能を持つ REST API を実装してください：
 
 エンドポイント：
 - GET /api/tasks - タスク一覧
@@ -130,7 +130,7 @@ skills/hono.md を参照して、以下の機能を持つ REST API を実装し�
 
 ### AI エージェントへの指示例
 ```
-skills/unit-test.md を参照して、TDD でユーザー認証機能を実装してください：
+claude/skills/unit-test.md を参照して、TDD でユーザー認証機能を実装してください：
 
 手順：
 1. まず、以下のテストケースを作成
@@ -152,12 +152,12 @@ skills/unit-test.md を参照して、TDD でユーザー認証機能を実装�
 npm init playwright@latest
 
 # ai-agent-tips を参照
-cp .ai-tips/skills/e2e-playwright.md docs/
+cp .ai-tips/claude/skills/e2e-playwright.md docs/
 ```
 
 ### AI エージェントへの指示例
 ```
-skills/e2e-playwright.md を参照して、ログインから商品購入までの
+claude/skills/e2e-playwright.md を参照して、ログインから商品購入までの
 E2E テストを実装してください：
 
 シナリオ：
@@ -178,8 +178,8 @@ E2E テストを実装してください：
 ```bash
 # ドキュメントディレクトリに配置
 mkdir -p docs/ai-guidelines
-cp -r .ai-tips/skills docs/ai-guidelines/
-cp -r .ai-tips/commands docs/ai-guidelines/
+cp -r .ai-tips/claude/skills docs/ai-guidelines/
+cp -r .ai-tips/claude/commands docs/ai-guidelines/
 cp .ai-tips/AGENT.md docs/ai-guidelines/
 
 # package.json に参照を追加
@@ -217,7 +217,7 @@ cp .ai-tips/AGENT.md docs/ai-guidelines/
 ```bash
 # すべてのプロジェクトで使用できるように設定
 mkdir -p ~/Library/Application\ Support/Claude/skills
-cp -r .ai-tips/skills/* ~/Library/Application\ Support/Claude/skills/
+cp -r .ai-tips/claude/skills/* ~/Library/Application\ Support/Claude/skills/
 cp .ai-tips/AGENT.md ~/Library/Application\ Support/Claude/
 ```
 
@@ -280,7 +280,7 @@ jobs:
           
       - name: Run Tests
         run: |
-          # skills/unit-test.md の基準を満たしているか
+          # claude/skills/unit-test.md の基準を満たしているか
           npm test -- --coverage
           npm run test:e2e
 ```
@@ -302,10 +302,10 @@ jobs:
 #### 問題: コマンドが見つからない
 ```
 解決策：
-commands/ ディレクトリのファイルを参照
+claude/commands/ ディレクトリのファイルを参照
 
 例：
-"commands/testing.md を確認して、Playwright の E2E テストを実行してください"
+"claude/commands/testing.md を確認して、Playwright の E2E テストを実行してください"
 ```
 
 ## まとめ
